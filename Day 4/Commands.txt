@@ -1,0 +1,112 @@
+var Name = "Rahul Reddy Srinivas"
+var age = 30
+var money = 30.25
+var bool_v = true;
+
+var movies = ["Jurassic Park", "Independence Day", "A Wednesday", "Indian"]
+
+var i = 10;
+var p = 0;
+for(i=0; i<=10; i++)(
+	p = p + i;
+	)
+
+var subject = (English: 92, Maths: 100, Science: 99)
+
+var ts = new timestamp() --> Current Time
+
+Commands --
+[1] Insert
+
+show dbs
+use clmongo
+show collections
+db
+db.createCollection("customers");
+db.customers.insert((first_name:"Rahul", last_name:"Srinivas"))
+db.customeers.find()
+db.customers.insert((first_name:"Sachin", last_name:"Tendulkar", Address: "29 Road Bandra Mumbai"))
+db.customers.find()
+db.customers.insert((first_name:"Mahender", last_name:"Dhoni", Address: "29 Road Bandra Mumbai", Age: 40))
+db.customers.find()
+
+db.customers.insert((first_name:Name, last_name:"", Address: "Hyderabad, Telangana", Age: 26))
+db.customers.find()
+
+db.customers.insert((School_name: "DPS", Teach: subject))
+db.customers.find()
+
+var t_date = new Date()
+db.customers.insert((School_name: "Navyug School", Teach: subject, data_doday: t_date))
+db.customers.find()
+var t_date_o = t_date.getDate()
+var t_date_m = t_date.getMonth()
+var t_date_y = t_date.getFullYear()
+
+Insert more than one document
+db.customers.insertMany([{first_name: "Kapil", last_name: "Sharma", Age:35},
+{first_name: "Rajesh", last_name: "Kumar", Age=29},
+{first_name: "Manish", last_name: "Kapoor", Age=31}])
+db.customers.find()
+
+db.customers.find().pretty() --> Better View
+
+-------------------------------------------------
+
+[2] Update 
+db.customers.update({first_name: "Sachin"}, {$set: {last_name: "Chandla"}})
+db.customers.find()
+
+db.customer.insert({fist_name: "Sachine", last_name: "Tendulkar"});
+db.customer.insert({fist_name: "Sachine", last_name: "Sharma"});
+db.customers.find()
+db.customers.update({first_name: "Sachin"}, {$set: {last_name: "Kumar"}}) --> Update only one record
+db.customers.find()
+
+
+db.customers.updateMany({first_name: "Sachin"}, {$set: {last_name: "Kumar"}}) --> Update every record in the document
+db.customers.find()
+
+[3] Save --> Replacing the existing document
+db.customer.save({_id: ....}, first_name: "Marender", last_name = "Singh", place = "Australia"})
+db.customers.find()
+
+[4] Remove
+db.customers.remove({first_name: "Sachin"}, 1)
+db.customers.find()
+db.customers.remove({first_name: "Sachin"})
+db.customers.find()
+
+db.customers.find().limit(2)
+
+-------------------------------------------
+
+db.customers.find(().sort({Age: 1}) --> Ascending Sorting
+db.customers.find(().sort({Age: -1}) --> Descending Sorting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

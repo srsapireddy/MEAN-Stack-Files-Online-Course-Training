@@ -1,0 +1,45 @@
+1+2
+
+"srinivas" + "Rahul"
+
+
+var t = 1  --> undefined (Not Used)
+t
+--------------------------
+var name1 = "Sachin"
+var name2 = "Chandla"
+var name
+name = name1 + name2
+> name
+SachinChandla
+--------------------------
+var i = 0
+var p = 0
+for(i=0; i<=10;i++)
+	{
+	  p = p+i;
+	}
+> p
+55
+---------------------------
+
+> var bool = true
+bool
+> var desci = 10.20
+deci
+10.20
+
+----------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+db.help()	--> different commands in mondodb
+db.stats()  	--> to see the stats of database
+db		--> for the current database
+show dbs 	--> how many databases are there in the mongodb server
+cls		--> clear screen
+use clmongo	--> create database
+show dbs
+db
+
+db.dropDatabase()	--> to delete a database
+use clmongo
+db
+show dbs
+
+db.createCollection("general") 	--> 	creating collection
+show collections		--> to see all collections in db
+show dbs
+db.dropDatabase()
+show dbs
+
+show dbs
+clmongo.dropDatabase() --> clmongo is not defined 
+
+use clmongo
+db.createCollection("general")
+db.createCollection("general_1", {capped:true, autoIndexId:true, size:1000, max: 120})
+show dbs
+db
+show collections
+db.general.drop()
+show collectios
+
+
+
+
+
+
+
+
+
+
+
+

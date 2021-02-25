@@ -1,0 +1,147 @@
+show dbs
+use clmongo
+show collections
+
+db.createCollection("offices", {capped: true, size: 10000, max:2})
+db.offices.isCapped()
+db.offices.insert({name: "MIA", place: "New Delhi"})
+db.offices.insert({name: "MCA", place: "New Delhi"})
+db.offices.find().pretty()
+db.offices.insert({name: "MeitY", place: "New Delhi"}) --> Will be inserted
+
+db.offices.find()  --> Will replace the ildest document and new one is inserted in the last.
+
+TIMESTAMP
+var tp = new Timestamp()
+db.offices.insert({name: "M/o Finance", place: "New Delhi", time_ot = tp})
+
+var tp = new Timestamp()
+db.offices.insert({name: "M/o Labour", place: "New Delhi", time_ot = tp})
+
+MIN/ MAX KEYS
+db.createCollection("movies")
+db.movies.insert([{a: 12}, {a: 10}, {a: 12.5}, {a: null}, {a:true}, {a:MinKey}, {a:MaxKey}]) --> 7 documents inserted
+db.movies.find().sort({a:1})
+db.movies.find().sort({a:-1})
+
+SYMBOL DATATYPE
+var sym = " 234$4456&****----" --> no meaning
+db.movies.insert({name: "Jurassic Park", Symbl: sym})
+db.movies.find()
+
+INDEXES
+show dbs
+use clmongo
+show collections
+
+db
+db.createCollection("indexceol")
+db.indexcol.insert({first_name: "Rahul", Age: 26})
+db.indexcol.insert({first_name: "Kapil", Age: 25})
+db.indexcol.insert({first_name: "Manish", Age: 40})
+db.indexcol.insert({first_name: "Sachin", Age: 39})
+db.indexcol.insert({first_name: "Ramesh", Age: 29})
+db.indexcol.insert({first_name: "Amit", Age: 46})
+db.indexcol.insert({first_name: "Atul", Age: 22})
+db.indexcol.insert({first_name: "Harender", Age: 36})
+db.indexcol.insert({first_name: "Ravinder", Age: 47})
+db.indexcol.insert({first_name: "Tushar", Age: 28})
+db.indexcol.insert({first_name: "Amita", Age: 51})
+db.indexcol.insert({first_name: "Rajesh", Age: 22})
+db.indexcol.insert({first_name: "Prateek", Age: 36})
+db.indexcol.insert({first_name: "Rakesh", Age: 24})
+db.indexcol.insert({first_name: "Ravinder", Age: 41})
+db.indexcol.insert({first_name: "Jitender", Age: 53})
+db.indexcol.insert({first_name: "Deepak", Age: 41})
+db.indexcol.find()
+db.indexcol.count()
+
+SEARCHING
+db.indexcol.find({Age: {$lt: 30}})
+db.indexcol.find({Age: {$lt: 30}}).explain("executionStats")
+
+CREATE INDEX
+db.indexcol.getIndexes()
+db.indexcol.createIndex({Age: 1})
+db.indexcol.getIndexes()
+
+db.indexcol.find({Age: {$lt: 30}})
+db.indexcol.find({Age: {$lt: 30}}).explain("executionStats")
+
+AGGREGATION
+db.indexcol.find()
+db.indexcol.insert({first_name: "Deepak", Age: 40})
+db.indexcol.insert({first_name: "Sachin", Age: 20})
+db.indexcol.insert({first_name: "Kapil", Age: 25})
+db.indexcol.find()
+
+db.indexcol.aggregate([{$group: {_id: "$first_name", total_age: {$sum: "$Age"}}}])
+
+db.indexcol.aggregate([{$group: {_id: "$first_name", total_age: {$avg: "$Age"}}}])
+
+db.indexcol.aggregate([{$group: {_id: "$first_name", total_age: {$min: "$Age"}}}])
+
+db.indexcol.aggregate([{$group: {_id: "$first_name", total_age: {$max: "$Age"}}}])
+
+BACKUP MONGODB
+show dbs
+mongodump
+
+RESTORE MONGODB
+mongorestore
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
